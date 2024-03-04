@@ -1,0 +1,777 @@
+[
+    {
+        "id": "c7dd1c3f267da2f2",
+        "type": "tab",
+        "label": "Flow 17",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3c2c35e0a62259a0",
+        "type": "group",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "c8c84064a9f0a457"
+        ],
+        "x": 634,
+        "y": 299,
+        "w": 212,
+        "h": 82
+    },
+    {
+        "id": "bba90ace6bfc7163",
+        "type": "ui_dropdown",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "label": "list bateau",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "2b5e7bdf1e0301ba",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "bateau1",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "bateau2",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "bateau3",
+                "value": "3",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 790,
+        "y": 120,
+        "wires": [
+            [
+                "4648aab6ac737677",
+                "fa31759bafa22263"
+            ]
+        ]
+    },
+    {
+        "id": "2497bda22468a3a8",
+        "type": "ui_toast",
+        "z": "c7dd1c3f267da2f2",
+        "position": "bottom right",
+        "displayTime": "5",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 720,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "c8c84064a9f0a457",
+        "type": "ui_text",
+        "z": "c7dd1c3f267da2f2",
+        "g": "3c2c35e0a62259a0",
+        "group": "678462a135299429",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Raspberry state",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 740,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e05de044f3922079",
+        "type": "mqtt-check",
+        "z": "c7dd1c3f267da2f2",
+        "host": "localhost",
+        "port": "1883",
+        "username": "",
+        "password": "",
+        "name": "",
+        "x": 380,
+        "y": 500,
+        "wires": [
+            [
+                "b0f7f1cf68317a8d"
+            ]
+        ]
+    },
+    {
+        "id": "8a725a57107e9302",
+        "type": "mqtt in",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "topic": "sensor1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9a14cd29e065aa74",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 360,
+        "wires": [
+            [
+                "f3565501b2a50459"
+            ]
+        ]
+    },
+    {
+        "id": "90ddfafe90d09c77",
+        "type": "mqtt out",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "topic": "pingrp",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9a14cd29e065aa74",
+        "x": 250,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "1d29a1f5b275afbb",
+        "type": "inject",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 100,
+        "y": 80,
+        "wires": [
+            [
+                "90ddfafe90d09c77",
+                "8a613d9f37709ddc"
+            ]
+        ]
+    },
+    {
+        "id": "f581e8abb1e94c2a",
+        "type": "mqtt in",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "topic": "espstate",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9a14cd29e065aa74",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 680,
+        "wires": [
+            [
+                "1aa1a2f75d62bec9"
+            ]
+        ]
+    },
+    {
+        "id": "70c496f81f069580",
+        "type": "ui_toast",
+        "z": "c7dd1c3f267da2f2",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 660,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "8a613d9f37709ddc",
+        "type": "mqtt out",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "topic": "espstate",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9a14cd29e065aa74",
+        "x": 60,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8c9e3bc9be38f621",
+        "type": "function",
+        "z": "c7dd1c3f267da2f2",
+        "name": "function 28",
+        "func": "if (msg.payload === 1) {\n    msg.payload = \"Working\";\n} else {\n    msg.payload = \"Problem\";\n}\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 360,
+        "wires": [
+            [
+                "2497bda22468a3a8",
+                "c8c84064a9f0a457"
+            ]
+        ]
+    },
+    {
+        "id": "1aa1a2f75d62bec9",
+        "type": "function",
+        "z": "c7dd1c3f267da2f2",
+        "name": "function 29",
+        "func": "if (msg.payload === 1) {\n    msg.payload = \"Working\";\n} else {\n    msg.payload = \"Problem\";\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 680,
+        "wires": [
+            [
+                "70c496f81f069580",
+                "78eeb090c1a0f404"
+            ]
+        ]
+    },
+    {
+        "id": "78eeb090c1a0f404",
+        "type": "ui_text",
+        "z": "c7dd1c3f267da2f2",
+        "group": "678462a135299429",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "esp32 state",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 710,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "30342ebf3f67852d",
+        "type": "mysql",
+        "z": "c7dd1c3f267da2f2",
+        "mydb": "3e51690c2d3c1c66",
+        "name": "",
+        "x": 1250,
+        "y": 60,
+        "wires": [
+            [
+                "08968d20be859d26",
+                "7b74820ffe4de87f"
+            ]
+        ]
+    },
+    {
+        "id": "f40aa4074675993f",
+        "type": "ui_text",
+        "z": "c7dd1c3f267da2f2",
+        "group": "678462a135299429",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "mqtt state ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 760,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f3565501b2a50459",
+        "type": "debug",
+        "z": "c7dd1c3f267da2f2",
+        "name": "debug 50",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b0f7f1cf68317a8d",
+        "type": "function",
+        "z": "c7dd1c3f267da2f2",
+        "name": "function 30",
+        "func": "if (msg.payload === 1) {\n    msg.payload = \"Working\";\n} else {\n    msg.payload = \"Problem\";\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 500,
+        "wires": [
+            [
+                "f40aa4074675993f"
+            ]
+        ]
+    },
+    {
+        "id": "4a35119e11141675",
+        "type": "inject",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "str",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "90ddfafe90d09c77",
+                "8a613d9f37709ddc"
+            ]
+        ]
+    },
+    {
+        "id": "19bb69e3df092156",
+        "type": "mqtt in",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "topic": "buttonState",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9a14cd29e065aa74",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1020,
+        "y": 520,
+        "wires": [
+            [
+                "a7366402415680d6",
+                "20d42f1ab5971849"
+            ]
+        ]
+    },
+    {
+        "id": "a7366402415680d6",
+        "type": "debug",
+        "z": "c7dd1c3f267da2f2",
+        "name": "debug 64",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "59131e6469870a9f",
+        "type": "ui_text",
+        "z": "c7dd1c3f267da2f2",
+        "group": "678462a135299429",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "GATE State",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1390,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "20d42f1ab5971849",
+        "type": "function",
+        "z": "c7dd1c3f267da2f2",
+        "name": "function 36",
+        "func": "if (msg.payload === 1) {\n    msg.payload = \"danger\";\n} else {\n    msg.payload = \"safe acces\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1210,
+        "y": 520,
+        "wires": [
+            [
+                "59131e6469870a9f",
+                "4f09c30ea4900f8d"
+            ]
+        ]
+    },
+    {
+        "id": "4f09c30ea4900f8d",
+        "type": "ui_toast",
+        "z": "c7dd1c3f267da2f2",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1400,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "4648aab6ac737677",
+        "type": "debug",
+        "z": "c7dd1c3f267da2f2",
+        "name": "debug 68",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "fa31759bafa22263",
+        "type": "function",
+        "z": "c7dd1c3f267da2f2",
+        "name": "function 39",
+        "func": "// Assuming msg.payload contains the id\nvar id = msg.payload;\n\n// Construct the SQL query\nvar sqlQuery = \"SELECT capacity FROM bateau WHERE id = \" + id;\n\n// Create a new message object with the SQL query\nvar newMsg = {\n    topic: sqlQuery ,\n    payload: sqlQuery\n};\n\n// Send the new message to the database node\nreturn newMsg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 100,
+        "wires": [
+            [
+                "1f2a994cf50e2093",
+                "30342ebf3f67852d"
+            ]
+        ]
+    },
+    {
+        "id": "1f2a994cf50e2093",
+        "type": "debug",
+        "z": "c7dd1c3f267da2f2",
+        "name": "debug 69",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "08968d20be859d26",
+        "type": "debug",
+        "z": "c7dd1c3f267da2f2",
+        "name": "debug 70",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1450,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4b9d54b4718d5a77",
+        "type": "ui_gauge",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "group": "2b5e7bdf1e0301ba",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "capacity",
+        "label": "",
+        "format": "{{ }}",
+        "min": 0,
+        "max": "100000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1540,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7b74820ffe4de87f",
+        "type": "function",
+        "z": "c7dd1c3f267da2f2",
+        "name": "function 40",
+        "func": "// Assuming the database query result is in msg.payload\nvar resultArray = msg.payload;\n\n// Check if the result is not empty and has the expected structure\nif (Array.isArray(resultArray) && resultArray.length > 0 && resultArray[0].hasOwnProperty('capacity')) {\n    // Extract the capacity value\n    var capacityValue = resultArray[0].capacity;\n\n    // Create a new message object with the capacity value\n    var newMsg = {\n        payload: capacityValue\n    };\n\n    // Send the new message to the next node in the flow\n    return newMsg;\n} else {\n    // Handle the case where the result is not as expected\n    node.error(\"Invalid database query result format\", msg);\n    return null;  // or return msg; depending on your needs\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 320,
+        "wires": [
+            [
+                "4b9d54b4718d5a77",
+                "e996cbb001f1eb3b"
+            ]
+        ]
+    },
+    {
+        "id": "5aff6bf35d6134c3",
+        "type": "mqtt in",
+        "z": "c7dd1c3f267da2f2",
+        "name": "",
+        "topic": "buttonState",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9a14cd29e065aa74",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 760,
+        "wires": [
+            [
+                "e05de044f3922079",
+                "66676db7039a79ca",
+                "ab73a9637a4725f3"
+            ]
+        ]
+    },
+    {
+        "id": "e996cbb001f1eb3b",
+        "type": "ui_text",
+        "z": "c7dd1c3f267da2f2",
+        "group": "2b5e7bdf1e0301ba",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "capacity",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1720,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "66676db7039a79ca",
+        "type": "mqtt-check",
+        "z": "c7dd1c3f267da2f2",
+        "host": "localhost",
+        "port": "1883",
+        "username": "",
+        "password": "",
+        "name": "",
+        "x": 460,
+        "y": 760,
+        "wires": [
+            [
+                "1aa1a2f75d62bec9"
+            ]
+        ]
+    },
+    {
+        "id": "ab73a9637a4725f3",
+        "type": "mqtt-check",
+        "z": "c7dd1c3f267da2f2",
+        "host": "localhost",
+        "port": "1883",
+        "username": "",
+        "password": "",
+        "name": "",
+        "x": 240,
+        "y": 420,
+        "wires": [
+            [
+                "8c9e3bc9be38f621"
+            ]
+        ]
+    },
+    {
+        "id": "2b5e7bdf1e0301ba",
+        "type": "ui_group",
+        "name": "control data base",
+        "tab": "4537933931111831",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "678462a135299429",
+        "type": "ui_group",
+        "name": "control devices",
+        "tab": "4537933931111831",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9a14cd29e065aa74",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.137.43",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3e51690c2d3c1c66",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "bateau",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "4537933931111831",
+        "type": "ui_tab",
+        "name": "Tab 4",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
